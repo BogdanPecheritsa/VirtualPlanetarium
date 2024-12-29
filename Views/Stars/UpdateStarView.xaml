@@ -1,0 +1,29 @@
+﻿<Window x:Class="VirtualPlanetarium.Views.Stars.UpdateStarView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Update Star" SizeToContent="Height" Width="300" ResizeMode="NoResize">
+    <StackPanel Margin="12,6">
+        <TextBlock Text="Star Name" Margin="0,10,0,0"/>
+        <TextBox x:Name="StarNameTextBox" />
+
+        <TextBlock Text="Spectral Class" Margin="0,10,0,0"/>
+        <TextBox x:Name="SpectralClassTextBox" />
+
+        <TextBlock Text="Mass" Margin="0,10,0,0"/>
+        <TextBox x:Name="MassTextBox" />
+
+        <TextBlock Text="Radius" Margin="0,10,0,0"/>
+        <TextBox x:Name="RadiusTextBox" />
+
+        <TextBlock Text="Temperature" Margin="0,10,0,0"/>
+        <TextBox x:Name="TemperatureTextBox" />
+
+        <TextBlock Text="Luminosity" Margin="0,10,0,0"/>
+        <TextBox x:Name="LuminosityTextBox" />
+
+        <TextBlock Text="Age" Margin="0,10,0,0"/>
+        <TextBox x:Name="AgeTextBox" />
+
+        <Button Content="Update" Margin="0,20,0,0" Click="SaveButton_Click"/>
+    </StackPanel>
+</Window>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\CelestialObjects\CreateCelestialObjectView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\CelestialObjects\UpdateCelestialObjectView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Comets\CreateCometView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Comets\UpdateCometView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Galaxies\CreateGalaxyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Galaxies\UpdateGalaxyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Nebuales\CreateNebulaeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Nebuales\UpdateNebulaeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Planets\CreatePlanetView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Planets\UpdatePlanetView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Stars\CreateStarView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Stars\UpdateStarView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\CelestialObjects\CreateCelestialObjectView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\CelestialObjects\UpdateCelestialObjectView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Comets\CreateCometView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Comets\UpdateCometView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Galaxies\CreateGalaxyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Galaxies\UpdateGalaxyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Nebuales\CreateNebulaeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Nebuales\UpdateNebulaeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Planets\CreatePlanetView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Planets\UpdatePlanetView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Stars\CreateStarView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Stars\UpdateStarView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

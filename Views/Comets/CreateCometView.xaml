@@ -1,0 +1,29 @@
+﻿<Window x:Class="VirtualPlanetarium.Views.Comets.CreateCometView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Create Comet" SizeToContent="Height" Width="300" ResizeMode="NoResize">
+    <StackPanel Margin="12,6">
+        <TextBlock Text="Comet Name" Margin="0,10,0,0"/>
+        <TextBox x:Name="CometNameTextBox" />
+
+        <TextBlock Text="Perihelion Distance" Margin="0,10,0,0"/>
+        <TextBox x:Name="PerihelionDistanceTextBox" />
+
+        <TextBlock Text="Aphelion Distance" Margin="0,10,0,0"/>
+        <TextBox x:Name="AphelionDistanceTextBox" />
+
+        <TextBlock Text="Orbital Period" Margin="0,10,0,0"/>
+        <TextBox x:Name="OrbitalPeriodTextBox" />
+
+        <TextBlock Text="Inclination" Margin="0,10,0,0"/>
+        <TextBox x:Name="InclinationTextBox" />
+
+        <TextBlock Text="Nucleus Diameter" Margin="0,10,0,0"/>
+        <TextBox x:Name="NucleusDiameterTextBox" />
+
+        <TextBlock Text="Composition" Margin="0,10,0,0"/>
+        <TextBox x:Name="CompositionTextBox" />
+
+        <Button Content="Create" Margin="0,20,0,0" Click="CreateButton_Click" />
+    </StackPanel>
+</Window>

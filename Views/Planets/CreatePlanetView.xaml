@@ -1,0 +1,29 @@
+﻿<Window x:Class="VirtualPlanetarium.Views.Planets.CreatePlanetView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Create Planet" SizeToContent="Height" Width="300" ResizeMode="NoResize">
+    <StackPanel Margin="12,6">
+        <TextBlock Text="Planet Name" Margin="0,10,0,0"/>
+        <TextBox x:Name="PlanetNameTextBox" />
+
+        <TextBlock Text="Orbit Semi-Major Axis" Margin="0,10,0,0"/>
+        <TextBox x:Name="OrbitSemiMajorAxisTextBox" />
+
+        <TextBlock Text="Eccentricity" Margin="0,10,0,0"/>
+        <TextBox x:Name="EccentricityTextBox" />
+
+        <TextBlock Text="Mass" Margin="0,10,0,0"/>
+        <TextBox x:Name="MassTextBox" />
+
+        <TextBlock Text="Radius" Margin="0,10,0,0"/>
+        <TextBox x:Name="RadiusTextBox" />
+
+        <TextBlock Text="Atmospheric Composition" Margin="0,10,0,0"/>
+        <TextBox x:Name="AtmosphericCompositionTextBox" />
+
+        <TextBlock Text="Surface Features" Margin="0,10,0,0"/>
+        <TextBox x:Name="SurfaceFeaturesTextBox" />
+
+        <Button Content="Create" Margin="0,20,0,0" Click="SaveButton_Click"/>
+    </StackPanel>
+</Window>

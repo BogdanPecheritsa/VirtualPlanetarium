@@ -1,0 +1,20 @@
+﻿<Window x:Class="VirtualPlanetarium.Views.Galaxies.UpdateGalaxyView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Update Galaxy" SizeToContent="Height" Width="300" ResizeMode="NoResize">
+    <StackPanel Margin="12,6">
+        <TextBlock Text="Galaxy Name" Margin="0,10,0,0"/>
+        <TextBox x:Name="GalaxyNameTextBox" />
+
+        <TextBlock Text="Galaxy Type" Margin="0,10,0,0"/>
+        <TextBox x:Name="GalaxyTypeTextBox" />
+
+        <TextBlock Text="Diameter" Margin="0,10,0,0"/>
+        <TextBox x:Name="DiameterTextBox" />
+
+        <TextBlock Text="Redshift" Margin="0,10,0,0"/>
+        <TextBox x:Name="RedshiftTextBox" />
+
+        <Button Content="Update" Margin="0,20,0,0" Click="SaveButton_Click"/>
+    </StackPanel>
+</Window>

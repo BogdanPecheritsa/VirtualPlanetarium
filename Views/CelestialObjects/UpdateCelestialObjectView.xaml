@@ -1,0 +1,29 @@
+﻿<Window x:Class="VirtualPlanetarium.Views.CelestialObjects.UpdateCelestialObjectView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Update Celestial Object" SizeToContent="Height" Width="400" ResizeMode="NoResize">
+    <StackPanel Margin="12,6">
+        <TextBlock Text="Name" Margin="0,10,0,0"/>
+        <TextBox x:Name="NameTextBox" />
+
+        <TextBlock Text="Object Type" Margin="0,10,0,0"/>
+        <TextBox x:Name="ObjectTypeTextBox" />
+
+        <TextBlock Text="Mass (kg)" Margin="0,10,0,0"/>
+        <TextBox x:Name="MassTextBox" />
+
+        <TextBlock Text="Radius (km)" Margin="0,10,0,0"/>
+        <TextBox x:Name="RadiusTextBox" />
+
+        <TextBlock Text="Distance (light years)" Margin="0,10,0,0"/>
+        <TextBox x:Name="DistanceTextBox" />
+
+        <TextBlock Text="Color" Margin="0,10,0,0"/>
+        <TextBox x:Name="ColorTextBox" />
+
+        <TextBlock Text="Temperature (K)" Margin="0,10,0,0"/>
+        <TextBox x:Name="TemperatureTextBox" />
+
+        <Button Content="Update" Margin="0,20,0,0" Click="SaveButton_Click"/>
+    </StackPanel>
+</Window>
