@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VirtualPlanetarium")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0302de7f6f72c98ae3147e71a581777b288fa8c8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+321156371452b0d47a108927f264420b00ba7bdb")]
 [assembly: System.Reflection.AssemblyProductAttribute("VirtualPlanetarium")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VirtualPlanetarium")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
