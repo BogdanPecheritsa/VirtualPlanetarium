@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using VirtualPlanetarium.Data;
+using VirtualPlanetarium.Models;
 
 #nullable disable
 
@@ -25,7 +25,6 @@ namespace VirtualPlanetarium.Migrations
             modelBuilder.Entity("VirtualPlanetarium.Models.CelestialObject", b =>
                 {
                     b.Property<Guid>("ObjectId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("ObjectID");
 
@@ -39,6 +38,7 @@ namespace VirtualPlanetarium.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
@@ -62,16 +62,16 @@ namespace VirtualPlanetarium.Migrations
 
             modelBuilder.Entity("VirtualPlanetarium.Models.Comet", b =>
                 {
-                    b.Property<string>("CometName")
-                        .HasColumnType("nvarchar(450)")
+                    b.Property<Guid>("CometId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("CometID");
 
                     b.Property<double?>("AphelionDistance")
                         .HasColumnType("float");
 
-                    b.Property<Guid>("CometId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("ObjectID");
+                    b.Property<string>("CometName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Composition")
                         .HasColumnType("text");
@@ -82,53 +82,62 @@ namespace VirtualPlanetarium.Migrations
                     b.Property<double?>("NucleusDiameter")
                         .HasColumnType("float");
 
+                    b.Property<Guid>("ObjectId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("ObjectID");
+
                     b.Property<double?>("OrbitalPeriod")
                         .HasColumnType("float");
 
                     b.Property<double?>("PerihelionDistance")
                         .HasColumnType("float");
 
-                    b.HasKey("CometName")
+                    b.HasKey("CometId")
                         .HasName("PK__Comets__6D2DFA460122FA05");
 
-                    b.HasIndex("CometId");
+                    b.HasIndex(new[] { "ObjectId" }, "IX_Comets_ObjectID");
 
                     b.ToTable("Comets");
                 });
 
             modelBuilder.Entity("VirtualPlanetarium.Models.Galaxy", b =>
                 {
-                    b.Property<string>("GalaxyName")
-                        .HasColumnType("nvarchar(450)")
+                    b.Property<Guid>("GalaxyId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("GalaxyID");
 
                     b.Property<double?>("Diameter")
                         .HasColumnType("float");
 
-                    b.Property<Guid>("GalaxyId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("ObjectID");
+                    b.Property<string>("GalaxyName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GalaxyType")
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<Guid>("ObjectId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("ObjectID");
+
                     b.Property<double?>("Redshift")
                         .HasColumnType("float");
 
-                    b.HasKey("GalaxyName")
+                    b.HasKey("GalaxyId")
                         .HasName("PK__Galaxies__D77289FF4364299B");
 
-                    b.HasIndex("GalaxyId");
+                    b.HasIndex(new[] { "ObjectId" }, "IX_Galaxies_ObjectID");
 
                     b.ToTable("Galaxies");
                 });
 
             modelBuilder.Entity("VirtualPlanetarium.Models.Nebulae", b =>
                 {
-                    b.Property<string>("NebulaeName")
-                        .HasColumnType("nvarchar(450)")
+                    b.Property<Guid>("NebulaeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("NebulaID");
 
                     b.Property<double?>("Brightness")
@@ -137,30 +146,35 @@ namespace VirtualPlanetarium.Migrations
                     b.Property<string>("Composition")
                         .HasColumnType("text");
 
-                    b.Property<Guid>("NebulaeId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("ObjectID");
+                    b.Property<string>("NebulaeName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NebulaeType")
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<Guid>("ObjectId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("ObjectID");
+
                     b.Property<double?>("Size")
                         .HasColumnType("float");
 
-                    b.HasKey("NebulaeName")
+                    b.HasKey("NebulaeId")
                         .HasName("PK__Nebulae__5FEAEDEB32215280");
 
-                    b.HasIndex("NebulaeId");
+                    b.HasIndex(new[] { "ObjectId" }, "IX_Nebulae_ObjectID");
 
                     b.ToTable("Nebulae", (string)null);
                 });
 
             modelBuilder.Entity("VirtualPlanetarium.Models.Planet", b =>
                 {
-                    b.Property<string>("PlanetName")
-                        .HasColumnType("nvarchar(450)")
+                    b.Property<Guid>("PlanetId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("PlanetID");
 
                     b.Property<string>("AtmosphericComposition")
@@ -175,12 +189,15 @@ namespace VirtualPlanetarium.Migrations
                     b.Property<double?>("Mass")
                         .HasColumnType("float");
 
+                    b.Property<Guid>("ObjectId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("ObjectID");
+
                     b.Property<double?>("OrbitSemiMajorAxis")
                         .HasColumnType("float");
 
-                    b.Property<Guid>("PlanetId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("ObjectID");
+                    b.Property<string>("PlanetName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("Radius")
                         .HasColumnType("float");
@@ -188,18 +205,19 @@ namespace VirtualPlanetarium.Migrations
                     b.Property<string>("SurfaceFeatures")
                         .HasColumnType("text");
 
-                    b.HasKey("PlanetName")
+                    b.HasKey("PlanetId")
                         .HasName("PK__Planets__1B0638C51DA90671");
 
-                    b.HasIndex("PlanetId");
+                    b.HasIndex(new[] { "ObjectId" }, "IX_Planets_ObjectID");
 
                     b.ToTable("Planets");
                 });
 
             modelBuilder.Entity("VirtualPlanetarium.Models.Star", b =>
                 {
-                    b.Property<string>("StarName")
-                        .HasColumnType("nvarchar(450)")
+                    b.Property<Guid>("StarId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("StarID");
 
                     b.Property<double?>("Age")
@@ -211,6 +229,10 @@ namespace VirtualPlanetarium.Migrations
                     b.Property<double?>("Mass")
                         .HasColumnType("float");
 
+                    b.Property<Guid>("ObjectId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("ObjectID");
+
                     b.Property<double?>("Radius")
                         .HasColumnType("float");
 
@@ -220,17 +242,16 @@ namespace VirtualPlanetarium.Migrations
                         .HasColumnType("char(1)")
                         .IsFixedLength();
 
-                    b.Property<Guid>("StarId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("ObjectID");
+                    b.Property<string>("StarName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Temperature")
                         .HasColumnType("int");
 
-                    b.HasKey("StarName")
+                    b.HasKey("StarId")
                         .HasName("PK__Stars__06ABC6475484F84A");
 
-                    b.HasIndex("StarId");
+                    b.HasIndex(new[] { "ObjectId" }, "IX_Stars_ObjectID");
 
                     b.ToTable("Stars");
                 });
@@ -239,7 +260,7 @@ namespace VirtualPlanetarium.Migrations
                 {
                     b.HasOne("VirtualPlanetarium.Models.CelestialObject", "Object")
                         .WithMany("Comets")
-                        .HasForeignKey("CometId")
+                        .HasForeignKey("ObjectId")
                         .IsRequired()
                         .HasConstraintName("FK__Comets__ObjectID__412EB0B6");
 
@@ -250,7 +271,7 @@ namespace VirtualPlanetarium.Migrations
                 {
                     b.HasOne("VirtualPlanetarium.Models.CelestialObject", "Object")
                         .WithMany("Galaxies")
-                        .HasForeignKey("GalaxyId")
+                        .HasForeignKey("ObjectId")
                         .IsRequired()
                         .HasConstraintName("FK__Galaxies__Object__3E52440B");
 
@@ -261,7 +282,7 @@ namespace VirtualPlanetarium.Migrations
                 {
                     b.HasOne("VirtualPlanetarium.Models.CelestialObject", "Object")
                         .WithMany("Nebulaes")
-                        .HasForeignKey("NebulaeId")
+                        .HasForeignKey("ObjectId")
                         .IsRequired()
                         .HasConstraintName("FK__Nebulae__ObjectI__440B1D61");
 
@@ -272,7 +293,7 @@ namespace VirtualPlanetarium.Migrations
                 {
                     b.HasOne("VirtualPlanetarium.Models.CelestialObject", "Object")
                         .WithMany("Planets")
-                        .HasForeignKey("PlanetId")
+                        .HasForeignKey("ObjectId")
                         .IsRequired()
                         .HasConstraintName("FK__Planets__ObjectI__3B75D760");
 
@@ -283,7 +304,7 @@ namespace VirtualPlanetarium.Migrations
                 {
                     b.HasOne("VirtualPlanetarium.Models.CelestialObject", "Object")
                         .WithMany("Stars")
-                        .HasForeignKey("StarId")
+                        .HasForeignKey("ObjectId")
                         .IsRequired()
                         .HasConstraintName("FK__Stars__ObjectID__38996AB5");
 

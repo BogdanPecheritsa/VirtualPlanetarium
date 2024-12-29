@@ -5,7 +5,10 @@ namespace VirtualPlanetarium.Models;
 
 public partial class Nebulae
 {
-    public Guid NebulaeId { get; set; } = Guid.NewGuid();
+    public Guid NebulaeId { get; set; }
+
+    public Guid ObjectId { get; set; }
+
     public string? NebulaeName { get; set; }
 
     public string? NebulaeType { get; set; }

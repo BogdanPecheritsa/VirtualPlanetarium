@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-
 namespace VirtualPlanetarium.Models;
-
 public partial class Star
 {
-    public Guid StarId { get; set; } = Guid.NewGuid();
+    public Guid StarId { get; set; }
+
+    public Guid ObjectId { get; set; }
+
     public string? StarName { get; set; }
 
     public string? SpectralClass { get; set; }

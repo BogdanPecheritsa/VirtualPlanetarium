@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using VirtualPlanetarium.Data;
 using VirtualPlanetarium.Interfaces;
 using VirtualPlanetarium.Models;
 

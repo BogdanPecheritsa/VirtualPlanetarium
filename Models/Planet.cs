@@ -5,7 +5,10 @@ namespace VirtualPlanetarium.Models;
 
 public partial class Planet
 {
-    public Guid PlanetId { get; set; } = Guid.NewGuid();
+    public Guid PlanetId { get; set; }
+
+    public Guid ObjectId { get; set; }
+
     public string? PlanetName { get; set; }
 
     public double? OrbitSemiMajorAxis { get; set; }

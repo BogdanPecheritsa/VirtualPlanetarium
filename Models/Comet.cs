@@ -5,8 +5,10 @@ namespace VirtualPlanetarium.Models;
 
 public partial class Comet
 {
-    public Guid CometId { get; set; } = Guid.NewGuid();
+    public Guid CometId { get; set; }
 
+    public Guid ObjectId { get; set; }
+    
     public string? CometName { get; set; }
 
     public double? PerihelionDistance { get; set; }

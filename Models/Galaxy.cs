@@ -5,7 +5,10 @@ namespace VirtualPlanetarium.Models;
 
 public partial class Galaxy
 {
-    public Guid GalaxyId { get; set; } = Guid.NewGuid();
+    public Guid GalaxyId { get; set; }
+
+    public Guid ObjectId { get; set; }
+
     public string? GalaxyName { get; set; }
 
     public string? GalaxyType { get; set; }

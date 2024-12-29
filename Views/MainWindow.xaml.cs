@@ -4,6 +4,12 @@ using System.Threading.Tasks;
 using System.Windows;
 using VirtualPlanetarium.Models;
 using VirtualPlanetarium.Repositories;
+using VirtualPlanetarium.Views.CelestialObjects;
+using VirtualPlanetarium.Views.Comets;
+using VirtualPlanetarium.Views.Galaxies;
+using VirtualPlanetarium.Views.Nebulaes;
+using VirtualPlanetarium.Views.Planets;
+using VirtualPlanetarium.Views.Stars;
 
 namespace VirtualPlanetarium
 {
@@ -20,7 +26,6 @@ namespace VirtualPlanetarium
         {
             InitializeComponent();
 
-            // Initialize repositories
             _celestialObjectRepository = new CelestialObjectRepository();
             _cometRepository = new CometRepository();
             _galaxyRepository = new GalaxyRepository();
@@ -84,8 +89,8 @@ namespace VirtualPlanetarium
 
         private async void CelestialObjectsCreateButton_Click(object sender, RoutedEventArgs e)
         {
-            var newObject = new CelestialObject { Name = "New Object" };
-            await _celestialObjectRepository.AddCelestialObjectAsync(newObject);
+            var createCelestialObjectView = new CreateCelestialObjectView();
+            createCelestialObjectView.ShowDialog();
             LoadCelestialObjects();
         }
 
@@ -93,8 +98,8 @@ namespace VirtualPlanetarium
         {
             if (CelestialObjectsDataGrid.SelectedItem is CelestialObject selected)
             {
-                selected.Name = "Updated Name";
-                await _celestialObjectRepository.UpdateCelestialObjectAsync(selected);
+                var updateCelestialObjectView = new UpdateCelestialObjectView(selected);
+                updateCelestialObjectView.ShowDialog();
                 LoadCelestialObjects();
             }
         }
@@ -120,8 +125,8 @@ namespace VirtualPlanetarium
 
         private async void CometsCreateButton_Click(object sender, RoutedEventArgs e)
         {
-            var newComet = new Comet { CometName = "New Comet" };
-            await _cometRepository.AddCometAsync(newComet);
+            var createCometView = new CreateCometView();
+            createCometView.ShowDialog();
             LoadComets();
         }
 
@@ -129,8 +134,8 @@ namespace VirtualPlanetarium
         {
             if (CometsDataGrid.SelectedItem is Comet selected)
             {
-                selected.CometName = "Updated Comet";
-                await _cometRepository.UpdateCometAsync(selected);
+                var updateCometView = new UpdateCometView(selected);
+                updateCometView.ShowDialog();
                 LoadComets();
             }
         }
@@ -146,8 +151,8 @@ namespace VirtualPlanetarium
 
         private async void GalaxiesCreateButton_Click(object sender, RoutedEventArgs e)
         {
-            var newGalaxy = new Galaxy { GalaxyName = "New Galaxy" };
-            await _galaxyRepository.AddGalaxyAsync(newGalaxy);
+            var createGalaxyView = new CreateGalaxyView();
+            createGalaxyView.ShowDialog();
             LoadGalaxies();
         }
 
@@ -155,8 +160,8 @@ namespace VirtualPlanetarium
         {
             if (GalaxiesDataGrid.SelectedItem is Galaxy selected)
             {
-                selected.GalaxyName = "Updated Galaxy";
-                await _galaxyRepository.UpdateGalaxyAsync(selected);
+                var updateGalaxyView = new UpdateGalaxyView(selected);
+                updateGalaxyView.ShowDialog();
                 LoadGalaxies();
             }
         }
@@ -172,8 +177,8 @@ namespace VirtualPlanetarium
 
         private async void NebulaesCreateButton_Click(object sender, RoutedEventArgs e)
         {
-            var newNebula = new Nebulae { NebulaeName = "New Nebula" };
-            await _nebulaeRepository.AddNebulaeAsync(newNebula);
+            var createNebulaeView = new CreateNebulaeView();
+            createNebulaeView.ShowDialog();
             LoadNebulaes();
         }
 
@@ -181,8 +186,8 @@ namespace VirtualPlanetarium
         {
             if (NebulaesDataGrid.SelectedItem is Nebulae selected)
             {
-                selected.NebulaeName = "Updated Nebula";
-                await _nebulaeRepository.UpdateNebulaeAsync(selected);
+                var updateNebulaeView = new UpdateNebulaeView(selected);
+                updateNebulaeView.ShowDialog();
                 LoadNebulaes();
             }
         }
@@ -197,18 +202,18 @@ namespace VirtualPlanetarium
         }
         private async void SearchNebulaesButton_Click(object sender, RoutedEventArgs e)
         {
-            string searchTerm = NebulaesSearchInput.Text; // TextBox для введення пошуку
+            string searchTerm = NebulaesSearchInput.Text;
             var nebulaes = await _nebulaeRepository.GetAllNebulaeAsync();
             var filteredNebulaes = nebulaes
-                .Where(n => n.NebulaeName.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                .Where(n => n.NebulaeType.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
                 .ToList();
             NebulaesDataGrid.ItemsSource = filteredNebulaes;
         }
 
         private async void PlanetsCreateButton_Click(object sender, RoutedEventArgs e)
         {
-            var newPlanet = new Planet { PlanetName = "New Planet" };
-            await _planetRepository.AddPlanetAsync(newPlanet);
+            var createPlanetView = new CreatePlanetView();
+            createPlanetView.ShowDialog();
             LoadPlanets();
         }
 
@@ -216,8 +221,8 @@ namespace VirtualPlanetarium
         {
             if (PlanetsDataGrid.SelectedItem is Planet selected)
             {
-                selected.PlanetName = "Updated Planet";
-                await _planetRepository.UpdatePlanetAsync(selected);
+                var updatePlanetView = new UpdatePlanetView(selected);
+                updatePlanetView.ShowDialog();
                 LoadPlanets();
             }
         }
@@ -232,7 +237,7 @@ namespace VirtualPlanetarium
         }
         private async void SearchPlanetsButton_Click(object sender, RoutedEventArgs e)
         {
-            string searchTerm = PlanetsSearchInput.Text; // TextBox для введення пошуку
+            string searchTerm = PlanetsSearchInput.Text;
             var planets = await _planetRepository.GetAllPlanetsAsync();
             var filteredPlanets = planets
                 .Where(p => p.PlanetName.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
@@ -242,8 +247,8 @@ namespace VirtualPlanetarium
 
         private async void StarsCreateButton_Click(object sender, RoutedEventArgs e)
         {
-            var newStar = new Star { StarName = "New Star" };
-            await _starRepository.AddStarAsync(newStar);
+            var createStarView = new CreateStarView();
+            createStarView.ShowDialog();
             LoadStars();
         }
 
@@ -251,8 +256,8 @@ namespace VirtualPlanetarium
         {
             if (StarsDataGrid.SelectedItem is Star selected)
             {
-                selected.StarName = "Updated Star";
-                await _starRepository.UpdateStarAsync(selected);
+                var updateStarView = new UpdateStarView(selected);
+                updateStarView.ShowDialog();
                 LoadStars();
             }
         }
@@ -276,7 +281,7 @@ namespace VirtualPlanetarium
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Логіка, яка виконується при завантаженні вікна
+            
         }
     }
 }

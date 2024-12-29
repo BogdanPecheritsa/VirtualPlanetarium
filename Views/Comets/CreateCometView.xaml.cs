@@ -3,6 +3,7 @@ using System.Windows;
 using VirtualPlanetarium.Interfaces;
 using VirtualPlanetarium.Models;
 using VirtualPlanetarium.Repositories;
+using VirtualPlanetarium.Views.CelestialObjects;
 
 namespace VirtualPlanetarium.Views.Comets
 {

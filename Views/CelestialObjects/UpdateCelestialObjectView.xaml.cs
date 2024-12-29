@@ -17,7 +17,6 @@ namespace VirtualPlanetarium.Views.CelestialObjects
             _celestialObjectRepository = new CelestialObjectRepository();
             _celestialObjectToEdit = celestialObjectToEdit;
 
-            // Ініціалізуємо поля при створенні вікна
             InitializeFields();
         }
 
@@ -54,7 +53,6 @@ namespace VirtualPlanetarium.Views.CelestialObjects
                 return;
             }
 
-            // Оновлюємо властивості об'єкта
             _celestialObjectToEdit.Name = NameTextBox.Text.Trim();
             _celestialObjectToEdit.ObjectType = ObjectTypeTextBox.Text.Trim();
             _celestialObjectToEdit.Mass = mass;
@@ -65,7 +63,6 @@ namespace VirtualPlanetarium.Views.CelestialObjects
                 ? null
                 : double.Parse(TemperatureTextBox.Text);
 
-            // Зберігаємо зміни
             _celestialObjectRepository.UpdateCelestialObjectAsync(_celestialObjectToEdit);
 
             MessageBox.Show("Celestial Object updated successfully!");
